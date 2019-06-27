@@ -64,7 +64,7 @@ def main(config, image_path, cuda, crf):
     # Inference
     output = model(Variable(image, volatile=True))
 
-    output = F.upsample(output, size=image_size, mode="bilinear")
+    output = F.upsample(output, size=image_size, mode='bilinear')
     output = F.softmax(output, dim=1)
     output = output[0].cpu().data.numpy()
 
